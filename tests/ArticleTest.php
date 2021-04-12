@@ -18,6 +18,7 @@ class ArticlaTest extends TestCase
         // 1. null and empty string are equal..
         // 2. function foo() {}
         //    returns null..
+        //    the same as: function foo() {return null;}
         // php: compare null an empty string reteturn true
         
         // so, instead of:
