@@ -10,5 +10,4 @@ class ArticlaTest extends TestCase
 
         $this->assertEmpty($article->title);
     }
-
 }
