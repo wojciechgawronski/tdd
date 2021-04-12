@@ -10,4 +10,19 @@ class ArticlaTest extends TestCase
 
         $this->assertEmpty($article->title);
     }
+
+    public function testSlugIsEmptyWithNoTitle()
+    {
+        $article = new App\Article;
+         
+        // 1. null and empty string are equal..
+        // 2. function foo() {}
+        //    returns null..
+        // php: compare null an empty string reteturn true
+        
+        // so, instead of:
+        // $this->assertEquals($article->getSlug(), "");
+        // use:
+        $this->assertSame($article->getSlug(), "");
+    }
 }
