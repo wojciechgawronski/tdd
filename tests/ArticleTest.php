@@ -4,7 +4,6 @@ use PHPUnit\Framework\TestCase;
 
 class ArticlaTest extends TestCase
 {
-
     protected $article;
 
     public function setUp() : void
@@ -46,6 +45,12 @@ class ArticlaTest extends TestCase
         $this->article->title = "An      example \n title";
 
         $this->assertEquals($this->article->getSlug(), "An_example_title");
-        
+    }
+
+    public function testSlugDoesNotStartOrEndWithUnderscore()
+    {
+        $this->article->title = " An     example title ";
+
+        $this->assertEquals($this->article->getSlug(), "An_example_title");
     }
 }
