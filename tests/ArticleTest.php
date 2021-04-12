@@ -8,7 +8,7 @@ class ArticlaTest extends TestCase
     {
         $article = new App\Article;
 
-        
+        $this->assertEmpty($article->title);
     }
 
 }
