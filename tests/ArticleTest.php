@@ -4,17 +4,21 @@ use PHPUnit\Framework\TestCase;
 
 class ArticlaTest extends TestCase
 {
+
+    protected $article;
+
+    public function setUp() : void
+    {
+        $this->article = new App\Article;
+    }
+
     public function testTitleIsEmptyByDefault()
     {
-        $article = new App\Article;
-
-        $this->assertEmpty($article->title);
+        $this->assertEmpty($this->article->title);
     }
 
     public function testSlugIsEmptyWithNoTitle()
     {
-        $article = new App\Article;
-         
         // 1. null and empty string are equal..
         // 2. function foo() {}
         //    returns null..
@@ -24,6 +28,16 @@ class ArticlaTest extends TestCase
         // so, instead of:
         // $this->assertEquals($article->getSlug(), "");
         // use:
-        $this->assertSame($article->getSlug(), "");
+        $this->assertSame($this->article->getSlug(), "");
+    }
+
+    /**
+     * test any s
+     */
+    public function testSlugHasSpacesReplacedByUnderscores()
+    {
+        $this->article->title = "An example title";
+
+        $this->assertEquals($this->article->getSlug(), "An_example_title");
     }
 }
