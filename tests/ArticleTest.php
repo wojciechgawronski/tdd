@@ -40,4 +40,12 @@ class ArticlaTest extends TestCase
 
         $this->assertEquals($this->article->getSlug(), "An_example_title");
     }
+
+    public function testSlugHashWithWhiteSpaces()
+    {
+        $this->article->title = "An      example \n title";
+
+        $this->assertEquals($this->article->getSlug(), "An_example_title");
+        
+    }
 }
