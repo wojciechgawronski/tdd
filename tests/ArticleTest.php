@@ -49,8 +49,8 @@ class ArticlaTest extends TestCase
 
     public function testSlugDoesNotStartOrEndWithUnderscore()
     {
-        $this->article->title = " An     example title ";
+        $this->article->title = " read ≠ this! now %$# :-) ";
 
-        $this->assertEquals($this->article->getSlug(), "An_example_title");
+        $this->assertEquals($this->article->getSlug(), "read_this_now");
     }
 }
