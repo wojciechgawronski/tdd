@@ -34,7 +34,12 @@ class ItemTest extends TestCase
         $this->assertIsString($result);
     }
 
-    public function testPrefixedTokenStartsWithPrefix()
+    /**
+     * it is not good idea to test private methodsm
+     * becose is internal class implementation
+     * however..
+     */
+    public function testPrivatePrefixedTokenStartsWithPrefix()
     {
         $item = new Item();
 
@@ -46,5 +51,21 @@ class ItemTest extends TestCase
         $result = $method->invokeArgs($item, ['example']);
 
         $this->assertStringStartsWith('example', $result);
+    }
+
+    public function testItemdIsInteger()
+    {
+        $item = new Item();
+        
+        // error: cant access to protected property
+        // $this->assertIsInt($item->itemId);
+        // so..
+
+        $reflection = new ReflectionClass(Item::class);
+        $property = $reflection->getProperty('itemId');
+        $property->setAccessible(true);
+        $value = $property->getValue($item);
+
+        $this->assertIsInt($value);
     }
 }

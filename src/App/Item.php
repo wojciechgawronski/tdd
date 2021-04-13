@@ -7,6 +7,13 @@ namespace App;
  */
 class Item
 {
+    protected int $itemId;
+
+    public function __construct()
+    {
+        $this->itemId = rand();
+    }
+
     public function getDescription() : string
     {
         return $this->getId() . "_" . $this->getToken();
