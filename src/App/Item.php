@@ -9,7 +9,7 @@ class Item
 {
     public function getDescription() : string
     {
-        return $this->getId() . $this->getToken();
+        return $this->getId() . "_" . $this->getToken();
     }
 
     protected function getId() : int
@@ -17,8 +17,8 @@ class Item
         return rand();
     }
 
-    private function getToken() : int
+    private function getToken() : string
     {
-        return (int) uniqid();
+        return uniqid();
     }
 }
