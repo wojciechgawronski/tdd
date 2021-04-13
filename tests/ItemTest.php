@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use App\Item;
+use App\ItemChild;
 use PHPUnit\Framework\TestCase;
 
 class ItemTest extends TestCase
@@ -14,7 +15,7 @@ class ItemTest extends TestCase
 
     public function testIdIsInteger()
     {
-        $item = new Item();
+        $item = new ItemChild();
 
         $this->assertIsInt($item->getId());
     }
