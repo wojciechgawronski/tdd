@@ -10,9 +10,10 @@ class UserTest extends TestCase
     {
         $user = new User('woj@gaw');
 
+        // mock will be better..
         $mailer = new Mailer;
 
-        $user->setMailer($mailer);
+        $user->setMailer($mailer); 
 
         $this->assertTrue($user->notify('hello!'));
     }
