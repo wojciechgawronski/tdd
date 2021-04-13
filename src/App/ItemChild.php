@@ -8,5 +8,4 @@ class ItemChild extends Item
     {
         return parent::getId();
     }
-
 }

@@ -19,4 +19,18 @@ class ItemTest extends TestCase
 
         $this->assertIsInt($item->getId());
     }
+
+    public function testTokenIsAString()
+    {
+        $item = new ItemChild();
+
+        $reflection = new ReflectionClass(Item::class);
+
+        $method = $reflection->getMethod('getToken');
+        $method->setAccessible(true);
+
+        $result = $method->invoke($item);
+
+        $this->assertIsString($result);
+    }
 }
