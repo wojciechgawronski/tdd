@@ -30,9 +30,7 @@ class ArticlaTest extends TestCase
         $this->assertSame($this->article->getSlug(), "");
     }
 
-    /**
-     * test any s
-     */
+    /*
     public function testSlugHasSpacesReplacedByUnderscores()
     {
         $this->article->title = "An example title";
@@ -52,5 +50,29 @@ class ArticlaTest extends TestCase
         $this->article->title = " read ≠ this! now %$# :-) ";
 
         $this->assertEquals($this->article->getSlug(), "read_this_now");
+    }
+    */
+
+    /**
+     * https://phpunit.readthedocs.io/en/9.3/writing-tests-for-phpunit.html#data-providers
+     */
+    public function titleProvider()
+    {
+        return [
+            ["An example title", "An_example_title"],
+            [" An example title ", "An_example_title"],
+            ["An      example \n title", "An_example_title"],
+            [" read ≠ this! now %$# \r :-) ", "read_this_now"],
+        ];
+    }
+
+    /**
+     * @dataProvider titleProvider
+     */
+    public function testSug($title, $slug)
+    {
+        $this->article->title = $title;
+
+        $this->assertEquals($this->article->getSlug(), $slug);
     }
 }
