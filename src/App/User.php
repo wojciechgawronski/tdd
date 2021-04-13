@@ -6,14 +6,20 @@ use App\Mailer;
 
 class User
 {
+    protected Mailer $mailer;
+
     public function __construct(
         public string $email
-    )
+    ) {
+    }
+
+    public function setMailer(Mailer $mailer)
     {
+        $this->mailer = $mailer;
     }
 
     public function notify(string $message)
     {
-        return Mailer::send($this->email, $message);
+        return $this->mailer::send($this->email, $message);
     }
 }
