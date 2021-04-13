@@ -20,7 +20,7 @@ class UserTest extends TestCase
 
         // because of static methid previus test do not pass..
 
-        $user->setMailer($mailer); 
+        // $user->setMailer($mailer); 
 
         $this->assertTrue($user->notify('hello!'));
     }

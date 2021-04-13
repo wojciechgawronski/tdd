@@ -20,6 +20,13 @@ class User
 
     public function notify(string $message)
     {
-        return $this->mailer->send($this->email, $message);
+        // equivalent of hardcoded static metod below:
+        // idea: we can pass the demendency on callable method..
+        // btw: PHPUnit does not support testing static methods
+        // but MockeryFramework supports..
+        return call_user_func([Mailer::class, 'send'], $this->email, $message);
+        
+        return $this->mailer::send($this->email, $message);
+
     }
 }
