@@ -13,6 +13,13 @@ class UserTest extends TestCase
         // mock will be better..
         $mailer = new Mailer;
 
+        // $mailer = $this->createMock(Mailer::class);
+        // $mailer->expects($this->once())
+        //         ->method('send')
+        //         ->willReturn(true);
+
+        // because of static methid previus test do not pass..
+
         $user->setMailer($mailer); 
 
         $this->assertTrue($user->notify('hello!'));
