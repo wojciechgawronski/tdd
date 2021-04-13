@@ -4,11 +4,10 @@ namespace App;
 
 abstract class AbstractPerson
 {
-
     public function __construct(
-        protected string $name)
+        protected string $name
+    )
     {
-        
     }
 
     abstract protected function getTitle() : string;
