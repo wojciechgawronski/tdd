@@ -22,7 +22,7 @@ class ItemTest extends TestCase
 
     public function testTokenIsAString()
     {
-        $item = new ItemChild();
+        $item = new Item();
 
         $reflection = new ReflectionClass(Item::class);
 
@@ -32,5 +32,19 @@ class ItemTest extends TestCase
         $result = $method->invoke($item);
 
         $this->assertIsString($result);
+    }
+
+    public function testPrefixedTokenStartsWithPrefix()
+    {
+        $item = new Item();
+
+        $reflection = new ReflectionClass(Item::class);
+
+        $method = $reflection->getMethod('getPrefixedToken');
+        $method->setAccessible(true);
+
+        $result = $method->invokeArgs($item, ['example']);
+
+        $this->assertStringStartsWith('example', $result);
     }
 }
