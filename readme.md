@@ -1,15 +1,11 @@
 ### TDD
 
-The tests driving the development - write code to make the tests pass, no more. 
-
-Testing the behaviour of the code, not how it's implemented.
+The tests driving the development - write code to make the tests pass, no more. Testing the behaviour of the code, not how it's implemented.
 
 ### ItemClass
 
 Class Item has public API. 
-Private and protected methods are internal parts of the class.
-
-Protected methods can be inheritants, so, unless declare is finall class protected methods shoud be tested. Because technicly they are still use outside of the class.
+Private and protected methods are internal parts of the class.Protected methods can be inheritants, so, unless declare is finall class protected methods shoud be tested. Because technicly they are still use outside of the class.
 
 ### Commits: 
 
